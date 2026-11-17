@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: medical-coding-assistant
+    runtime: python-3.11
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && python -m uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: 1
