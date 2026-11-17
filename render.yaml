@@ -2,7 +2,7 @@ services:
   - type: web
     name: medical-coding-assistant
     runtime: python-3.11
-    buildCommand: pip install -r backend/requirements.txt
+    buildCommand: pip install -r backend/requirements.txt && cd backend && python ingest.py ICD-10_MIT_2021_Excel_16-March_2021.xlsx
     startCommand: cd backend && python -m uvicorn app:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHONUNBUFFERED
