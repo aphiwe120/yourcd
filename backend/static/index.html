@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Coding Assistant - ICD-10 Lookup</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="medical-header">
+            <div class="header-content">
+                <h1>ICD-10 Medical Coding Assistant</h1>
+                <p>AI-Powered Diagnostic Code Suggestions</p>
+                <p class="subtitle">Quickly find accurate ICD-10 codes for patient diagnoses</p>
+            </div>
+        </header>
+
+        <main>
+            <!-- Quick Stats -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-count">41,008</span>
+                    <span class="stat-label">ICD-10 Codes Available</span>
+                </div>
+            </section>
+
+            <!-- Query Form -->
+            <section class="query-section medical-form">
+                <h2>Search for Diagnosis Codes</h2>
+                <form id="queryForm">
+                    <div class="form-group">
+                        <label for="question">Describe the patient's diagnosis or symptoms:</label>
+                        <textarea 
+                            id="question" 
+                            name="question" 
+                            placeholder="e.g., 'Persistent fever and productive cough for 2 weeks' or 'Type 2 diabetes mellitus with hypertension'"
+                            required
+                            rows="4"
+                        ></textarea>
+                        <p class="form-hint">Be as specific as possible for better code suggestions</p>
+                    </div>
+                    <button type="submit" id="askBtn" class="btn-primary btn-large">Search Codes</button>
+                </form>
+            </section>
+
+            <!-- Loading State -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Finding matching ICD-10 codes...</p>
+            </div>
+
+            <!-- Results Section -->
+            <section id="results" class="results-section" style="display: none;">
+                <h2>Suggested ICD-10 Codes</h2>
+                
+                <div id="answer-box" class="answer-box">
+                    <p id="answer-text"></p>
+                </div>
+
+                <div id="codes-container" class="codes-container" style="display: none;">
+                    <h3>Matching Codes</h3>
+                    <div id="codes-list" class="codes-list"></div>
+                </div>
+
+                <div class="result-actions">
+                    <button class="btn-secondary" onclick="document.getElementById('queryForm').scrollIntoView({behavior: 'smooth'})">New Search</button>
+                </div>
+            </section>
+
+            <!-- Error Message -->
+            <div id="errorBox" class="error-box" style="display: none;">
+                <p id="error-text"></p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Medical Coding Assistant - South African Edition</p>
+            <p class="footer-note">Data from SA ICD-10 Master Industry Table</p>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+python ingest C:\Users\sizwe\Downloads\yourcd\backend\ICD-10_MIT_2021_Excel_16-March_2021.xlsx
+
+export OPENAI_API_KEY="sk-ijklmnopqrstuvwxijklmnopqrstuvwxijklmnop"
